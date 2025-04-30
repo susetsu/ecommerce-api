@@ -19,7 +19,8 @@ API RESTful para una plataforma de comercio electrónico desarrollada con Spring
 - Hibernate
 - JWT (JSON Web Tokens)
 - Swagger / OpenAPI
-- H2 (base de datos en memoria para desarrollo)
+- Postgresql
+- Docker (para despliegue de PostgreSQL)
 
 ## 📄 Documentación de la API
 
@@ -34,6 +35,19 @@ Una vez que la aplicación esté en ejecución, puedes acceder a la documentaci�
 
 - Java 17 o superior
 - Maven 3.8 o superior
+
+### 🗄️ Configuración de Base de Datos
+  #### Requisitos
+  - Docker instalado (para ejecutar PostgreSQL en contenedor)
+
+- Iniciar PostgreSQL con Docker
+   ```bash 
+   docker run -d --name postgresql-ecommerce -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=ecommerce -p 5432:5432 -v postgres_data:/var/lib/postgresql/data postgres:latest
+   ```
+- Cambiar la url del datasources 
+   ```bash 
+   spring.datasource.url=jdbc:postgresql://<ip>:5432/ecommerce
+   ```
 
 ### Pasos para ejecutar la aplicación
 
